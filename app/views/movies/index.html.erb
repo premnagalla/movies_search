@@ -1,0 +1,29 @@
+<div class="container base-page border">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h3>Search Movies</h3>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container bottom-20 top-10 border pad-10">
+      <%= form_with url: search_movies_path, method: :get, local: false, class: "row gy-2 gx-3 align-items-center" do |form| %>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInput">Name</label>
+          <%= form.text_field :title, placeholder: "Search Movies", class: 'form-control' %>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <%= form.select :search_in, {"Local first" => 'local_first', "Search TMDB" => 'search_tmdb' }, {}, class: 'form-select' %>
+        </div>
+        <div class="col-auto">
+          <%= form.submit "Search", class: 'btn btn-primary btn-sm' %>
+        </div>
+      <% end %>
+  </div>
+
+  <div id="movies_data">
+    <%= render partial: 'movies', locals: { movies: @movies } %>
+  </div>
+</div>

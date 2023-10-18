@@ -1,0 +1,16 @@
+<div class="col">
+  <div class="card h-100">
+    <%= image_tag(img_path(movie), size: "123x150", class: 'card-img-top', alt: 'No Image') %>
+
+    <div class="card-body">
+      <h6 class="card-title"><%= truncate(movie.title, length: 24) %></h6>
+      <p class="card-text"><%= truncate(movie.overview, length: 40) %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-body-secondary">
+        <%= link_to "View", movie_path(movie.id), target: :_blank, class: 'btn btn-primary btn-sm' %>
+      </small>
+    </div>
+  </div>
+</div>

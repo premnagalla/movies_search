@@ -1,0 +1,12 @@
+<% if params[:search_in] == 'local_first' && @total_count > PAGE_SIZES[0]  %>
+  <div class="pagination-filter pull-right col-4 text-end">
+    <span>Items per page</span>
+    <ul>
+      <% PAGE_SIZES.each do |size| %>
+        <% if @total_count > size %>
+          <li><%= link_to size, url_for(per_page: size, search_in: params[:search_in], title: params[:title]), remote: true %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

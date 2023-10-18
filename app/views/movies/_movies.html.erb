@@ -1,0 +1,24 @@
+<%= render partial: 'layouts/flash_messages' %>
+
+<% if movies.any? %>
+  <div class="container bottom-20">
+    <div class="container text-center">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% movies.each do |movie| %>
+          <%= render partial: 'movie', locals: { movie: movie } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="pull-left col-8">
+        <%= paginate movies, remote: true, params: { search_in: params[:search_in] } %>
+      </div>
+      <%= render partial: 'layouts/per_page_filter', locals: { total_count: @total_count } %>
+    </div>
+  </div>
+<% else %>
+  <p>Please Search for movies</p>
+<% end %>

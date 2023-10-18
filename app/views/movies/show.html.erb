@@ -1,0 +1,16 @@
+<div class="container text-left">
+  <div class="row">
+    <div class="col-6 pull-left">
+      <%= image_tag("https://www.themoviedb.org/t/p/w600_and_h900_bestv2#{@movie.poster_path}", size: "300x450") %>
+    </div>
+
+    <div class="col-6 pull-right">
+      <h3><%= @movie.title %></h3><br/>
+      Release: <%= @movie.release_date %><br/>
+      <%= (@movie.vote_average*10).round %>% User score with <%= @movie.vote_count %> votes<br/>
+      Adult Rating: <%= @movie.adult? ? "Yes" : "No" %>
+      <h4>Overview</h4>
+      <%= @movie.overview %>
+    </div>
+  </div>
+</div>
