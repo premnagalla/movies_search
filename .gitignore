@@ -36,3 +36,5 @@
 
 # Custom files
 /config/tmdb_keys.yml
+/config/database.yml
+.DS_Store
